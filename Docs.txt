@@ -1,0 +1,35 @@
+Reading The Docs:
+Any number in [] Means to send that Char. For example, [0xA] Means send a new line while 0xA Is send over 3 chars 0, x, A
+
+Events:
+	Join - Name: String, Id: Int, Color: Color, Server: String
+	Disconnect
+	Data - *Server->Client*[Name: String, Pos: Pos, Color: Color]XPlayers *Client->Server*Name: String, Pos: Pos, Color: Color, Audio: Int
+	Ping - ID: Int
+	Pong - ID: Int
+
+Types:
+	Int: 10 | Just a number
+	String: "Hello":5 | A string surrounded by ". With the len at the end
+	Pos: 1-2-3 | Three Ints to define a pos or two Ints for 2d space
+	Color: 255-0-1 | Three Ints to define a color
+	Bool: T | A true or false
+	
+Format:
+(len):(Event){|(arg)}*amount of args|[0x00]
+  |      |             |              |
+Length   The Event     Every arg      The stop byte not included in len
+Of Packet              starts with "|"
+
+Examples:
+	Ping:
+		14:Ping|103782382|[0x00]
+	Pong:
+		14:Ping|103782382|[0x00]
+	Connecting:
+		[36]:Connect|"Carson":6|1|255-0-0|"Dev":3|[0x00] -- Client
+		[9]:Ping|1927|[0x00] -- Client |
+		[9]:Pong|1927|[0x00] -- Server |_ Not Needed
+		[47]:Data|"Dev"|0-0-0|0-255-0|"Dev2"|0-100-0|0-0-255|[0x00] - Server
+		
+If a server or client recevices a Ping event then they must send a Pong event with the same ID and the Ping Request.
