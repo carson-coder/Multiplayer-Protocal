@@ -7,4 +7,4 @@ Trying to make a multiplayer game protocol in python because there are no good o
 
 This will probably just be another terible one but ¯\\_(ツ)_/¯
 
-*Totaly not because I am made that photon isn't open-source*
+*Totaly not because I am mad that photon isn't open-source*
