@@ -14,7 +14,7 @@ import colorama
 open_text = colorama.Style.BRIGHT + colorama.Fore.CYAN + f"""    _   ___  ___ __  __ ___ 
    /_\ / _ \/ __|  \/  | _ \\
   / _ \ (_) \__ \ |\/| |  _/
- /_/ \_\___/|___/_|  |_|_| {colorama.Fore.GREEN}  (A Open-Source Multiplayer Protocal)
+ /_/ \_\___/|___/_|  |_|_| {colorama.Fore.GREEN}  (A Open-Source Multiplayer Protocol)
  """ + colorama.Style.RESET_ALL
 
 print(open_text)
